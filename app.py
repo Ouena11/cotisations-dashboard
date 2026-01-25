@@ -16,8 +16,8 @@ def load_data():
     return pd.read_excel("cotisations.xlsx")
 # Bouton pour rafraîchir les données
 if st.button("🔄 Rafraîchir les données"):    
-st.cache_data.clear() # Vide le cache
-st.experimental_rerun() # Relance l'app pour recharger le fichier 
+   st.cache_data.clear() # Vide le cache
+   st.experimental_rerun() # Relance l'app pour recharger le fichier 
 
 df = load_data()
 
