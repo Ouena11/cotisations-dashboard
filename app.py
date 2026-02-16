@@ -174,4 +174,4 @@ st.plotly_chart(fig_anim, use_container_width=True)
 # -----------------------------
 # MESSAGE FINAL
 # -----------------------------
-st.markdown("✨ Tableau de bord complet avec filtres, alertes (mois terminés), animations et export.")
+st.markdown("✨ Fait avec cœur par OUENA Edouard, Data Analyst & Data Scientist Gestionnaire Financier.")
