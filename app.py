@@ -171,7 +171,6 @@ export_excel = st.sidebar.button("Exporter en Excel")
 if export_excel:
     df_filtre.to_excel("cotisations_filtrees.xlsx", index=False)
     st.sidebar.success("✅ Fichier Excel exporté")
-=======
 # EXPORT DES DONNÉES (optimisé)
 # -----------------------------
 st.sidebar.subheader("📤 Exporter les données")
@@ -193,5 +192,4 @@ st.plotly_chart(fig_anim, use_container_width=True)
 # MESSAGE FINAL
 # -----------------------------
 st.markdown("✨ Tableau de bord complet avec filtres, animations et export.")
-=======
 st.markdown("✨ Fait avec cœur par OUENA Edouard, Data Analyst & Data Scientist Gestionnaire Financier.")
