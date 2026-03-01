@@ -1,7 +1,11 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+<<<<<<< HEAD
 import plotly.graph_objects as go
+=======
+import datetime
+>>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 
 # -----------------------------
 # CONFIGURATION DE LA PAGE
@@ -9,9 +13,23 @@ import plotly.graph_objects as go
 st.set_page_config(page_title="Situation des cotisations", layout="wide", page_icon="💰")
 
 # -----------------------------
+<<<<<<< HEAD
 # CHARGEMENT DES DONNÉES
 # -----------------------------
 df = pd.read_excel("cotisations.xlsx")
+=======
+# CHARGEMENT DES DONNÉES (optimisé avec cache)
+# -----------------------------
+@st.cache_data
+def load_data():
+    return pd.read_excel("cotisations.xlsx")
+# Bouton pour rafraîchir les données
+if st.button("🔄 Rafraîchir les données"):    
+   st.cache_data.clear() # Vide le cache
+   st.rerun() # Relance l'app pour recharger le fichier 
+
+df = load_data()
+>>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 
 # -----------------------------
 # TITRE
@@ -52,6 +70,44 @@ col3.metric("✅ Paiements effectués", nb_paiements)
 col4.metric("❌ Non-paiements", nb_non_paiements)
 
 # -----------------------------
+<<<<<<< HEAD
+=======
+# LOGIQUE DE RETARD DE PAIEMENT
+# -----------------------------
+st.subheader("⚠️ Membres en retard")
+
+# Date actuelle
+today = datetime.date.today()
+current_year = today.year
+current_month = today.month
+
+# Mapping mois → numéro
+mois_map = {
+    "Janvier": 1, "Février": 2, "Mars": 3, "Avril": 4,
+    "Mai": 5, "Juin": 6, "Juillet": 7, "Août": 8,
+    "Septembre": 9, "Octobre": 10, "Novembre": 11, "Décembre": 12
+}
+
+# Détection des retards uniquement pour les mois terminés
+retards = []
+for _, row in df_filtre.iterrows():
+    mois_num = mois_map[row["MOIS"]]
+    annee = row["ANNEE"]
+    montant = row["MONTANT"]
+
+    if (annee < current_year) or (annee == current_year and mois_num < current_month):
+        if montant == 0:
+            retards.append(row["NOM"])
+
+retards_df = pd.DataFrame(retards, columns=["NOM"]).value_counts().reset_index(name="Mois impayés")
+
+if not retards_df.empty:
+    st.dataframe(retards_df, use_container_width=True)
+else:
+    st.success("Tous les membres sont à jour ✅")
+
+# -----------------------------
+>>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 # GRAPHIQUE PAR ANNÉE
 # -----------------------------
 st.subheader("📅 Cotisations par année")
@@ -111,6 +167,7 @@ st.subheader("📌 Données filtrées")
 st.dataframe(df_filtre, use_container_width=True)
 
 # -----------------------------
+<<<<<<< HEAD
 # EXPORT DES DONNÉES
 # -----------------------------
 st.sidebar.subheader("📤 Exporter les données")
@@ -123,6 +180,13 @@ export_excel = st.sidebar.button("Exporter en Excel")
 if export_excel:
     df_filtre.to_excel("cotisations_filtrees.xlsx", index=False)
     st.sidebar.success("✅ Fichier Excel exporté")
+=======
+# EXPORT DES DONNÉES (optimisé)
+# -----------------------------
+st.sidebar.subheader("📤 Exporter les données")
+csv = df_filtre.to_csv(index=False).encode("utf-8")
+st.sidebar.download_button("Exporter en CSV", csv, "cotisations_filtrees.csv", "text/csv")
+>>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 
 # -----------------------------
 # ANIMATION AVANCÉE : Evolution par année
@@ -138,4 +202,8 @@ st.plotly_chart(fig_anim, use_container_width=True)
 # -----------------------------
 # MESSAGE FINAL
 # -----------------------------
+<<<<<<< HEAD
 st.markdown("✨ Tableau de bord complet avec filtres, animations et export.")
+=======
+st.markdown("✨ Fait avec cœur par OUENA Edouard, Data Analyst & Data Scientist Gestionnaire Financier.")
+>>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
