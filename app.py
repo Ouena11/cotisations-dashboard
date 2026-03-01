@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-<<<<<<< HEAD
 import plotly.graph_objects as go
 =======
 import datetime
@@ -13,7 +12,7 @@ import datetime
 st.set_page_config(page_title="Situation des cotisations", layout="wide", page_icon="💰")
 
 # -----------------------------
-<<<<<<< HEAD
+
 # CHARGEMENT DES DONNÉES
 # -----------------------------
 df = pd.read_excel("cotisations.xlsx")
