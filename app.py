@@ -100,7 +100,6 @@ else:
     st.success("Tous les membres sont à jour ✅")
 
 # -----------------------------
->>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 # GRAPHIQUE PAR ANNÉE
 # -----------------------------
 st.subheader("📅 Cotisations par année")
@@ -160,7 +159,6 @@ st.subheader("📌 Données filtrées")
 st.dataframe(df_filtre, use_container_width=True)
 
 # -----------------------------
-<<<<<<< HEAD
 # EXPORT DES DONNÉES
 # -----------------------------
 st.sidebar.subheader("📤 Exporter les données")
@@ -179,7 +177,6 @@ if export_excel:
 st.sidebar.subheader("📤 Exporter les données")
 csv = df_filtre.to_csv(index=False).encode("utf-8")
 st.sidebar.download_button("Exporter en CSV", csv, "cotisations_filtrees.csv", "text/csv")
->>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 
 # -----------------------------
 # ANIMATION AVANCÉE : Evolution par année
@@ -195,8 +192,6 @@ st.plotly_chart(fig_anim, use_container_width=True)
 # -----------------------------
 # MESSAGE FINAL
 # -----------------------------
-<<<<<<< HEAD
 st.markdown("✨ Tableau de bord complet avec filtres, animations et export.")
 =======
 st.markdown("✨ Fait avec cœur par OUENA Edouard, Data Analyst & Data Scientist Gestionnaire Financier.")
->>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
