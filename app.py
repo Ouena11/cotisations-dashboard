@@ -2,9 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-=======
 import datetime
->>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 
 # -----------------------------
 # CONFIGURATION DE LA PAGE
