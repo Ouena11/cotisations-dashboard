@@ -14,7 +14,6 @@ st.set_page_config(page_title="Situation des cotisations", layout="wide", page_i
 # CHARGEMENT DES DONNÉES
 # -----------------------------
 df = pd.read_excel("cotisations.xlsx")
-=======
 # CHARGEMENT DES DONNÉES (optimisé avec cache)
 # -----------------------------
 @st.cache_data
@@ -26,7 +25,6 @@ if st.button("🔄 Rafraîchir les données"):
    st.rerun() # Relance l'app pour recharger le fichier 
 
 df = load_data()
->>>>>>> e01381c96ab175276e91c7cd5c12aef40485d928
 
 # -----------------------------
 # TITRE
@@ -67,8 +65,6 @@ col3.metric("✅ Paiements effectués", nb_paiements)
 col4.metric("❌ Non-paiements", nb_non_paiements)
 
 # -----------------------------
-<<<<<<< HEAD
-=======
 # LOGIQUE DE RETARD DE PAIEMENT
 # -----------------------------
 st.subheader("⚠️ Membres en retard")
